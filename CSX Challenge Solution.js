@@ -133,3 +133,50 @@ const simon = new PersonConstructor();
 simon.greet();
 
 //===============================================================================================
+// https://www.youtube.com/watch?v=0YEabRrrpEk&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=8
+// createFunctionWithInput (CSX Closures Unit)
+function createFunctionWithInput(example) {
+  return () => {
+    console.log(example);
+  };
+}
+
+const sampleFunc = createFunctionWithInput("sample");
+const helloFunc = createFunctionWithInput("hello");
+
+console.log(sampleFunc());
+console.log(helloFunc());
+
+//===============================================================================================
+//https://www.youtube.com/watch?v=Sn0bbIU6DvI&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=9
+//createFunction (CSX Closures Unit)
+function createFunction() {
+  return () => {
+    console.log("hello world");
+  };
+}
+
+let myFunction = createFunction();
+
+console.log(myFunction());
+//===============================================================================================
+// https://www.youtube.com/watch?v=4u0lHYkhVoU&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=12
+// cycleIterator (CSX Closures Unit)
+
+function cycleIterator(array) {
+  let index = 0;
+
+  return function () {
+    const result = array[index++];
+    if (index >= array.length) index = 0;
+
+    return result;
+  };
+}
+
+const threeDayWeekend = ["Fri", "Sat", "Sun"];
+const getDay = cycleIterator(threeDayWeekend);
+console.log(getDay());
+console.log(getDay());
+console.log(getDay());
+console.log(getDay());
