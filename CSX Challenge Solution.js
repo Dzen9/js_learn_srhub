@@ -201,3 +201,148 @@ for (let i = 1; i <= 16; i++) {
 
 console.log(fb);
 
+//===============================================================================================
+//https://www.youtube.com/watch?v=PhbNDieKAOk&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=15
+// map (CSX Callbacks and Higher Order Functions Unit)
+
+function substractTwo(num) {
+  return num - 2;
+}
+
+function map(array, callback) {
+  array.forEach((value, index, change) => {
+    change[index] = substractTwo(value);
+  });
+
+  return array;
+}
+
+console.log(map([3, 4, 5]));
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=OO_hGJWb05M&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=17
+// personFromPersonStore (CSX OOP Unit)
+
+
+const personStore = {
+  greet: function () {
+    console.log("hello");
+  },
+};
+
+function personFromPersonStore(name, age) {
+  newObject = Object.create(personStore);
+  newObject.name = name;
+  newObject.age = age;
+  return newObject;
+}
+
+const sandra = personFromPersonStore("Sandra", 27);
+console.log(sandra);
+console.log(sandra.greet());
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=cyjaWV_H-78&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=20
+// censor (Closure, Scope and Execution Context Unit)
+
+function censor() {
+  const cache = {};
+  return function (stringOne, stringTwo) {
+    if (stringTwo) {
+      cache[stringOne] = stringTwo;
+    } else {
+      for (const [replace, on] of Object.entries(cache)) {
+        stringOne = stringOne.replace(replace, on);
+      }
+      return stringOne;
+    }
+  };
+}
+
+const changeScene = censor();
+changeScene("dogs", "cats");
+changeScene("quick", "slow");
+console.log(changeScene("The quick, brown fox jumps over the lazy dogs."));
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=thmw-aEuQe0&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=21
+//after (Closure, Scope & Execution Context Unit)
+function after(numOfCalls, callback) {
+  let counter = 0;
+
+  return function (...args) {
+    counter++;
+    if (counter >= numOfCalls) {
+      return callback(...args);
+    }
+  };
+}
+
+const called = function (string) {
+  return `hello ${string}`;
+};
+
+const afterCalled = after(3, called);
+
+console.log(afterCalled("world"));
+console.log(afterCalled("world"));
+console.log(afterCalled("world"));
+
+//===============================================================================================
+//https://www.youtube.com/watch?v=CJXQ2tYHDf0&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=22
+//multiMap (CSX Callbacks and Higher Order Functions Unit)
+
+function multiMap(items, functions) {
+  obj = {};
+
+  items.forEach((element) => {
+    let array = [];
+    functions.forEach((func) => {
+      array.push(func(element));
+    });
+
+    obj[element] = array;
+  });
+
+  return obj;
+}
+
+function uppercaser(str) {
+  return str.toUpperCase();
+}
+
+function capitalize(str) {
+  return str[0].toUpperCase() + str.slice(1).toLowerCase();
+}
+
+function repeater(str) {
+  return str + str;
+}
+
+const items = ["catfood", "glue", "beer"];
+const functions = [uppercaser, capitalize, repeater];
+console.log(multiMap(items, functions));
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=ww3yb3qNPyM&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=23
+// saveOutput (CSX Closure, Scope & Execution Context Unit)
+
+function saveOutput(func, password) {
+  const cache = {};
+
+  return function (arg) {
+    if (arg === password) {
+      return cache;
+    } else {
+      cache[String(arg)] = func(arg);
+    }
+  };
+}
+
+const multiplyBy2 = function (num) {
+  return num * 2;
+};
+const multiply2AndLog = saveOutput(multiplyBy2, "boo");
+console.log(multiply2AndLog(2));
+console.log(multiply2AndLog(9));
+console.log(multiply2AndLog("boo"));
