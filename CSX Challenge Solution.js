@@ -119,7 +119,17 @@ function disemvovel(string) {
 console.log(disemvovel("CodeSmith"));
 console.log(disemvovel("BANANA"));
 console.log(disemvovel("hello world"));
+//===============================================================================================
+// https://www.youtube.com/watch?v=Mc6zn8fkHXc&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=7
+//PersonConstructor (CSX OOP Unit)
 
+function PersonConstructor() {
+  this.greet = () => {
+    console.log("hello");
+  };
+}
 
+const simon = new PersonConstructor();
+simon.greet();
 
-
+//===============================================================================================
