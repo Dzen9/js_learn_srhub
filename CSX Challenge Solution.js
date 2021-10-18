@@ -42,8 +42,10 @@ console.log(reduce(nums, add, 0));
 //https://www.youtube.com/watch?v=micF_oeeeko&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=3
 //runInOrder (CSX Async Unit)
 function runInOrder(functions, timeouts) {
+  time = 0;
   for (const array of functions.entries()) {
-    setTimeout(array[1], timeouts[array[0]]);
+    time += timeouts[array[0]];
+    setTimeout(array[1], time);
   }
 }
 
