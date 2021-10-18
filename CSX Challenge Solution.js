@@ -180,3 +180,24 @@ console.log(getDay());
 console.log(getDay());
 console.log(getDay());
 console.log(getDay());
+
+//===============================================================================================
+//https://www.youtube.com/watch?v=J7n9O8j4rUY&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=14
+//fizzbuzz (CSX Precourse Unit)
+
+let fb = [];
+
+for (let i = 1; i <= 16; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    fb.push("fizzbuzz");
+  } else if (i % 3 === 0) {
+    fb.push("fizz");
+  } else if (i % 5 === 0) {
+    fb.push("fizz");
+  } else {
+    fb.push(i);
+  }
+}
+
+console.log(fb);
+
