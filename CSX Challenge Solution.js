@@ -65,3 +65,34 @@ fnc = [sayHi, sayBye, sayHowdy];
 tm = [300, 600, 200];
 
 runInOrder(fnc, tm);
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=pwftU5vjMY0&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=4
+// flow (CSX Recursion Unit)
+function flow(input, funcArray) {
+  for (const func of funcArray) {
+    input = func(input);
+  }
+
+  return input;
+}
+
+function multiplyBy2(num) {
+  return num * 2;
+}
+
+function add7(num) {
+  return num + 7;
+}
+
+function modulo4(num) {
+  return num % 4;
+}
+function subtract10(num) {
+  return num - 10;
+}
+
+const arrayOfFunctions = [multiplyBy2, add7, modulo4, subtract10];
+
+console.log(flow(2, arrayOfFunctions));
+
