@@ -96,3 +96,30 @@ const arrayOfFunctions = [multiplyBy2, add7, modulo4, subtract10];
 
 console.log(flow(2, arrayOfFunctions));
 
+//===============================================================================================
+//https://www.youtube.com/watch?v=gaAcOR5yWxw&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=5
+//For Loops And Arrays (CSX Precourse Unit)
+
+const synonyms = ["fantastic", "wonderful", "great"];
+const greetings = [];
+
+for (const syn of synonyms) {
+  greetings.push(`Have a ${syn} day!`);
+}
+
+console.log(greetings);
+//===============================================================================================
+// https://www.youtube.com/watch?v=f2tYPU-0qV4&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=6
+// disemvowel (CSX Functions and Execution Context Unit)
+
+function disemvovel(string) {
+  return string.replace(/[eyuioa]/gi, "");
+}
+
+console.log(disemvovel("CodeSmith"));
+console.log(disemvovel("BANANA"));
+console.log(disemvovel("hello world"));
+
+
+
+
