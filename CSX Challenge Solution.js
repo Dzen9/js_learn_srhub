@@ -346,3 +346,86 @@ const multiply2AndLog = saveOutput(multiplyBy2, "boo");
 console.log(multiply2AndLog(2));
 console.log(multiply2AndLog(9));
 console.log(multiply2AndLog("boo"));
+
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=TqcSDa-Blf0&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=24
+//intersection (CSX Callbacks & Higher-order Functions Unit)
+const arr1 = [5, 10, 15, 20, 5];
+const arr2 = [15, 88, 1, 5, 7];
+const arr3 = [1, 10, 15, 5, 20];
+
+console.log(intersection([arr1, arr2, arr3]));
+
+function intersection(arrays) {
+  arrays.forEach((value, index, arr) => {
+    arr[index] = [...new Set(arr[index])];
+  });
+  let allData = arrays.flat().sort();
+  // console.log(allData);
+  let repeatData = [];
+  for (let i = 0; i < allData.length - 1; i++) {
+    if (
+      allData[i] === allData[i + 1] &&
+      i + 2 <= allData.length - 1 &&
+      allData[i + 1] === allData[i + 2]
+    ) {
+      repeatData.push(allData[i]);
+    }
+  }
+
+  return [...new Set(repeatData)];
+}
+//===============================================================================================
+// https://www.youtube.com/watch?v=xjvizrVY3Qs&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=25
+// forEach (CSX Callbacks & Higher-order Functions Unit)
+
+function forEach(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    callback(array[i]);
+  }
+}
+
+function map(array, call) {
+  let result = [];
+  forEach(array, function (element) {
+    result.push(call(element));
+  });
+
+  return result;
+}
+
+alphabet = "";
+
+forEach(["a", "b", "c"], (x) => {
+  alphabet += x;
+});
+
+console.log(alphabet);
+//===============================================================================================
+// https://www.youtube.com/watch?v=AHAcaJUG_Qo&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=26
+// union (CSX Callbacks & Higher Order Functions Unit)
+
+const arr1 = [5, 10, 15, 20, 5];
+const arr2 = [15, 88, 1, 5, 7];
+const arr3 = [1, 10, 15, 5, 20];
+
+function union(array) {
+  return [...new Set(array.flat())];
+}
+
+function unionFromReduce(array) {
+  return array.reduce((resultat, currentArray) => {
+    currentArray.forEach((value) => {
+      if (!resultat.includes(value)) {
+        resultat.push(value);
+      }
+    });
+    return resultat;
+  }, []);
+}
+
+console.log(union([arr1, arr2, arr3]));
+console.log(unionFromReduce([arr1, arr2, arr3]));
+
+//===============================================================================================
