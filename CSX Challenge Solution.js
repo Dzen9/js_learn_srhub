@@ -509,3 +509,28 @@ function uppercaser(str) {
 console.log(objMatches(arr1, arr2, uppercaser));
 
 //===============================================================================================
+// https://www.youtube.com/watch?v=SoFJPtHJi8w&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=32
+// Short-Circuiting a Loop (Functions and Execution Context Unit)
+function holidays(array) {
+  let wasOctober = false;
+  array.forEach((element) => {
+    if (element === "October") {
+      wasOctober = true;
+    }
+  });
+  if (!wasOctober) {
+    return "Have a great day!";
+  } else {
+    return "Happy Halloween";
+  }
+}
+
+const months = ["April", "May", "June", "October"];
+const animals = ["Cats", "Dogs", "Pigs"];
+
+console.log(holidays(months));
+console.log(holidays(animals));
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=A4mSdIyM8PY&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=33
+// multiplyAll (Functions and Execution Context Unit)
