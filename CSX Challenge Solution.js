@@ -545,3 +545,42 @@ function multiplyAll(...args) {
 
 console.log(multiplyAll(1, 34, 2, 2, 1, 2, 23, 4));
 console.log(multiplyAll(4, 3, 3));
+
+
+//===============================================================================================
+//https://www.youtube.com/watch?v=RPaYQaidxXA&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=35
+//Objects - Adding Properties (Precourse Part 2)
+const possibleIterable = [4, 3, 9, 6, 23];
+const divByThree = {};
+
+possibleIterable.forEach((element, index, array) => {
+  if (element % 3 === 0) {
+    divByThree[element] = index;
+  }
+});
+
+console.log(divByThree);
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=9nF-F__yK0I&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=36
+// limitedInterval (Asynchronous JavaScript Unit)
+function limitedInterval(callback, wait, limit) {
+  let timeCounter = wait;
+  while (timeCounter <= limit) {
+    setTimeout(callback, timeCounter);
+
+    timeCounter += wait;
+  }
+}
+
+limitedInterval(() => console.log("repeating"), 100, 550);
+//===============================================================================================
+//https://www.youtube.com/watch?v=P-iMJN1Yad4&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=37
+// For Loops - Fundamentals (Precourse - Part 2)
+
+let countDown = 10;
+
+for (; countDown >= 0; countDown--) {
+  console.log(countDown);
+}
+//===============================================================================================
