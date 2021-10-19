@@ -534,3 +534,14 @@ console.log(holidays(animals));
 //===============================================================================================
 // https://www.youtube.com/watch?v=A4mSdIyM8PY&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=33
 // multiplyAll (Functions and Execution Context Unit)
+function multiplyAll(...args) {
+  let result = 1;
+  args.forEach((element) => {
+    result *= element;
+  });
+
+  return result;
+}
+
+console.log(multiplyAll(1, 34, 2, 2, 1, 2, 23, 4));
+console.log(multiplyAll(4, 3, 3));
