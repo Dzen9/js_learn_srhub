@@ -429,3 +429,83 @@ console.log(union([arr1, arr2, arr3]));
 console.log(unionFromReduce([arr1, arr2, arr3]));
 
 //===============================================================================================
+// https://www.youtube.com/watch?v=ASmSIU-A2wc&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=28
+// forEach (Asynchronous JavaScript Unit)
+function forEach(arr, callback) {
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], i);
+  }
+}
+
+const delays = [200, 500, 0, 350];
+
+function delayLog(delayTime, i) {
+  setTimeout(() => console.log(`printing element ${i}`), delayTime);
+}
+
+forEach(delays, delayLog);
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=5AzgSa6olDo&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=29
+// groupBy (Callbacks & Higher Order Functions Unit)
+const decimals = [1.3, 2.1, 2.4];
+const floored = function (num) {
+  return Math.floor(num);
+};
+
+console.log(groupBy(decimals, floored));
+
+function groupBy(array, callback) {
+  let resultArray = [];
+  let result = {};
+
+  for (const value of array) {
+    let valueResult = callback(value);
+    if (result[valueResult] === undefined) {
+      result[valueResult] = [];
+    }
+    result[valueResult].push(value);
+  }
+
+  console.log(result);
+}
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=euRZldF1o3U&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=31
+// dateStamp (Closure, Scope & Execution Context Unit)
+
+function dateStamp(func) {
+  return function (...args) {
+    return { date: new Date().toDateString(), output: func(...args) };
+  };
+}
+
+const stampedMultBy2 = dateStamp((n) => n * 2);
+console.log(stampedMultBy2(4));
+console.log(stampedMultBy2(6));
+
+//===============================================================================================
+// https://www.youtube.com/watch?v=euRZldF1o3U&list=PLWrQZnG8l0E5qPeomg7pmAzQF4vTvLnzV&index=31
+// objOfMatches (Callbacks & Higher Order Functions Unit)
+function objMatches(arr1, arr2, callback) {
+  obj = {};
+  arr1.forEach((element, i) => {
+    resultText = callback(element);
+    if (resultText === arr2[i]) {
+      obj[element] = arr2[i];
+    }
+  });
+
+  return obj;
+}
+
+const arr1 = ["hi", "howdy", "bye", "later", "hello"];
+const arr2 = ["HI", "Howdy", "BYE", "later", "HELLO"];
+
+function uppercaser(str) {
+  return str.toUpperCase();
+}
+
+console.log(objMatches(arr1, arr2, uppercaser));
+
+//===============================================================================================
